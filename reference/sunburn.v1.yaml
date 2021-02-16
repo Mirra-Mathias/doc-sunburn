@@ -1721,6 +1721,545 @@ paths:
                 - email
                 - user_type
                 - password
+  /apiV0/lectureshp:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-apiV0-lectureshp
+      deprecated: true
+  /apiV0/findAllStates:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  message:
+                    type: string
+                    minLength: 1
+                  data:
+                    type: array
+                    uniqueItems: true
+                    minItems: 1
+                    items:
+                      required:
+                        - id
+                        - type
+                        - created
+                        - updatedAt
+                      properties:
+                        id:
+                          type: number
+                        type:
+                          type: string
+                          minLength: 1
+                        created:
+                          type: string
+                          minLength: 1
+                        updatedAt:
+                          type: string
+                          minLength: 1
+                required:
+                  - message
+                  - data
+              examples:
+                Exemple:
+                  value:
+                    message: La liste des états a bien été récupérée.
+                    data:
+                      - id: 1
+                        type: En cours
+                        created: '2021-01-20T19:37:03.000Z'
+                        updatedAt: '2021-01-20T19:37:03.000Z'
+                      - id: 2
+                        type: Refusé
+                        created: '2021-01-20T19:37:03.000Z'
+                        updatedAt: '2021-01-20T19:37:03.000Z'
+                      - id: 3
+                        type: terminé
+                        created: '2021-01-20T19:37:03.000Z'
+                        updatedAt: '2021-01-20T19:37:03.000Z'
+      operationId: get-apiV0-findAllStates
+  '/apiV0/findStateTypeByElement/{id}':
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  message:
+                    type: string
+                    minLength: 1
+                  data:
+                    type: array
+                    uniqueItems: true
+                    minItems: 1
+                    items:
+                      required:
+                        - id
+                        - type
+                        - created
+                        - updatedAt
+                      properties:
+                        id:
+                          type: number
+                        type:
+                          type: string
+                          minLength: 1
+                        created:
+                          type: string
+                          minLength: 1
+                        updatedAt:
+                          type: string
+                          minLength: 1
+                        elements:
+                          type: array
+                          uniqueItems: true
+                          minItems: 1
+                          items:
+                            required:
+                              - nom
+                              - date_debut
+                              - updatedAt
+                              - id_affectation
+                              - id_state_type
+                            properties:
+                              nom:
+                                type: string
+                                minLength: 1
+                              date_debut_p: {}
+                              date_fin_p: {}
+                              date_fin: {}
+                              date_debut:
+                                type: string
+                                minLength: 1
+                              updatedAt:
+                                type: string
+                                minLength: 1
+                              id_affectation:
+                                type: number
+                              id_type_element: {}
+                              id_state_type:
+                                type: number
+                required:
+                  - message
+                  - data
+              examples:
+                Exemple:
+                  value:
+                    message: La liste des éléments a bien été récupérée.
+                    data:
+                      - id: 1
+                        type: En cours
+                        created: '2021-01-20T19:37:03.000Z'
+                        updatedAt: '2021-01-20T19:37:03.000Z'
+                        elements:
+                          - nom: NRO-31-300
+                            date_debut_p: null
+                            date_fin_p: null
+                            date_fin: null
+                            date_debut: '2021-01-22T10:49:53.000Z'
+                            updatedAt: '2021-02-16T13:52:48.000Z'
+                            id_affectation: 1
+                            id_type_element: null
+                            id_state_type: 1
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  message:
+                    type: string
+                    minLength: 1
+                required:
+                  - message
+      operationId: get-apiV0-findStateTypeByElement
+      description: ''
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  /apiV0/deleteStep/:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+              examples:
+                Exemple:
+                  value:
+                    message: La liste des steps a bien été récupérée.
+                    data:
+                      projet: 400
+                      zone: 401
+                      module: 413
+                      tache: 431
+                      step:
+                        id: 483
+                        nom: SRO
+                        date_debut_p: null
+                        date_fin_p: null
+                        date_fin: null
+                        date_debut: '2021-02-02T14:32:44.000Z'
+                        updatedAt: '2021-02-02T14:32:44.000Z'
+                        id_affectation: null
+                        id_type_element: 6
+                        id_state_type: null
+                        step:
+                          id_tache: 431
+      operationId: get-apiV0-deleteStep
+      deprecated: true
+  '/apiV0/findAllStepsByPk/{id}':
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  message:
+                    type: string
+                    minLength: 1
+                  data:
+                    type: object
+                    properties:
+                      projet:
+                        type: number
+                      zone:
+                        type: number
+                      module:
+                        type: number
+                      tache:
+                        type: number
+                      step:
+                        type: object
+                        properties:
+                          id:
+                            type: number
+                          nom:
+                            type: string
+                            minLength: 1
+                          date_debut_p: {}
+                          date_fin_p: {}
+                          date_fin: {}
+                          date_debut:
+                            type: string
+                            minLength: 1
+                          updatedAt:
+                            type: string
+                            minLength: 1
+                          id_affectation: {}
+                          id_type_element:
+                            type: number
+                          id_state_type: {}
+                          step:
+                            type: object
+                            properties:
+                              id_tache:
+                                type: number
+                            required:
+                              - id_tache
+                        required:
+                          - id
+                          - nom
+                          - date_debut
+                          - updatedAt
+                          - id_type_element
+                          - step
+                    required:
+                      - projet
+                      - zone
+                      - module
+                      - tache
+                      - step
+                required:
+                  - message
+                  - data
+        '500':
+          description: Internal Server Error
+      operationId: get-apiV0-findAllStepsByPk
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  /apiV0/findStepsByTaches:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-apiV0-findStepsByTaches
+    parameters: []
+  /apiV0/createTache:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-apiV0-createTache
+      deprecated: true
+  /apiV0/deleteTache/:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-apiV0-deleteTache
+      deprecated: true
+  /apiV0/findAllTacheByPk/:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  message:
+                    type: string
+                    minLength: 1
+                  data:
+                    type: object
+                    properties:
+                      projet:
+                        type: number
+                      zone:
+                        type: number
+                      module:
+                        type: number
+                      tache:
+                        type: object
+                        properties:
+                          id:
+                            type: number
+                          nom:
+                            type: string
+                            minLength: 1
+                          date_debut_p: {}
+                          date_fin_p: {}
+                          date_fin: {}
+                          date_debut:
+                            type: string
+                            minLength: 1
+                          updatedAt:
+                            type: string
+                            minLength: 1
+                          id_affectation: {}
+                          id_type_element:
+                            type: number
+                          id_state_type: {}
+                          tache:
+                            type: object
+                            properties:
+                              id_module:
+                                type: number
+                            required:
+                              - id_module
+                        required:
+                          - id
+                          - nom
+                          - date_debut
+                          - updatedAt
+                          - id_type_element
+                          - tache
+                      steps:
+                        type: array
+                        items:
+                          required: []
+                          properties: {}
+                    required:
+                      - projet
+                      - zone
+                      - module
+                      - tache
+                      - steps
+                required:
+                  - message
+                  - data
+              examples:
+                Exemple:
+                  value:
+                    message: La liste des module a bien été récupérée.
+                    data:
+                      projet: 932
+                      zone: 944
+                      module: 988
+                      tache:
+                        id: 1040
+                        nom: depot
+                        date_debut_p: null
+                        date_fin_p: null
+                        date_fin: null
+                        date_debut: '2021-02-04T13:42:00.000Z'
+                        updatedAt: '2021-02-04T13:42:00.000Z'
+                        id_affectation: null
+                        id_type_element: 11
+                        id_state_type: null
+                        tache:
+                          id_module: 988
+                      steps: []
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  message:
+                    type: string
+                    minLength: 1
+                required:
+                  - message
+      operationId: get-apiV0-findAllTacheByPk
+  /apiV0/findAllTemplates:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-apiV0-findAllTemplates
+      deprecated: true
+  /apiV0/createProjet:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+        '201':
+          description: Created
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  message:
+                    type: string
+                    minLength: 1
+                  element:
+                    type: object
+                    properties:
+                      id:
+                        type: number
+                      nom:
+                        type: string
+                        minLength: 1
+                      updatedAt:
+                        type: string
+                        minLength: 1
+                      date_debut:
+                        type: string
+                        minLength: 1
+                    required:
+                      - id
+                      - nom
+                      - updatedAt
+                      - date_debut
+                  projet:
+                    type: object
+                    properties:
+                      id:
+                        type: number
+                      id_responsable:
+                        type: number
+                      id_element:
+                        type: number
+                      id_client:
+                        type: number
+                    required:
+                      - id
+                      - id_responsable
+                      - id_element
+                      - id_client
+                required:
+                  - message
+                  - element
+                  - projet
+      operationId: get-apiV0-createProjet
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: ''
+              type: object
+              properties:
+                message:
+                  type: string
+                  minLength: 1
+                data:
+                  type: object
+                  required:
+                    - nom
+                    - link
+                    - id_template
+                    - projet
+                    - responsable
+                    - client
+                  properties:
+                    nom:
+                      type: string
+                      minLength: 1
+                    link:
+                      type: string
+                      minLength: 1
+                      description: lien zip projet
+                    id_template:
+                      type: number
+                    projet:
+                      type: object
+                      required:
+                        - nom
+                        - zones
+                      properties:
+                        nom:
+                          type: string
+                          minLength: 1
+                        zones:
+                          type: array
+                          items:
+                            type: object
+                    responsable:
+                      type: number
+                    client:
+                      type: number
+              required:
+                - message
+                - data
 components:
   schemas:
     Client:
