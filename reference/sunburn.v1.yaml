@@ -702,7 +702,7 @@ paths:
         required: true
   /apiV0/createClient:
     post:
-      summary: Create projet
+      summary: Create client
       operationId: post-apiV0-createClient
       responses:
         '200':
@@ -2021,13 +2021,6 @@ paths:
       responses: {}
       operationId: get-apiV0-findStepsByTaches
     parameters: []
-  /apiV0/createTache:
-    get:
-      summary: createTache
-      tags: []
-      responses: {}
-      operationId: get-apiV0-createTache
-      deprecated: true
   /apiV0/deleteTache/:
     get:
       summary: Delete tache
