@@ -1,0 +1,608 @@
+openapi: 3.0.0
+info:
+  title: sunburn
+  version: '1.0'
+  contact:
+    name: Equipe SI MCGR
+    email: helpdesk@mcgr.fr
+    url: helpdesk@mcgr.fr
+  description: ''
+servers:
+  - url: 'http://217.182.175.55:8083'
+paths:
+  /apiV0/login:
+    parameters: []
+    post:
+      summary: Connexion
+      operationId: post-apiV0-login
+      responses:
+        '200':
+          description: Retourne le token et l'uitlisateur
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  message:
+                    type: string
+                    minLength: 1
+                  data:
+                    type: object
+                    required:
+                      - id
+                      - name
+                      - password
+                      - email
+                      - etat
+                      - created
+                      - updatedAt
+                      - id_user_type
+                    properties:
+                      id:
+                        type: number
+                      name:
+                        type: string
+                        minLength: 1
+                      password:
+                        type: string
+                        minLength: 1
+                      email:
+                        type: string
+                        minLength: 1
+                      etat:
+                        type: string
+                        minLength: 1
+                      created:
+                        type: string
+                        minLength: 1
+                      updatedAt:
+                        type: string
+                        minLength: 1
+                      id_user_type:
+                        type: number
+                required:
+                  - message
+                  - data
+              examples:
+                Example:
+                  value:
+                    message: string
+                    data:
+                      id: 0
+                      name: string
+                      password: string
+                      email: string
+                      etat: string
+                      created: string
+                      updatedAt: string
+                      id_user_type: 0
+        '404':
+          description: Utilisateur non existant
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  message:
+                    type: string
+                    minLength: 1
+                required:
+                  - message
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  message:
+                    type: string
+                    minLength: 1
+                required:
+                  - message
+      description: Connexion Utilisateur
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: ''
+              type: object
+              properties:
+                user_name:
+                  type: string
+                  minLength: 1
+                password:
+                  type: string
+                  minLength: 1
+              required:
+                - user_name
+                - password
+            examples:
+              Example:
+                value:
+                  user_name: string
+                  password: string
+        description: ''
+  /apiV0/findAllClients:
+    get:
+      summary: Find all clients
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  message:
+                    type: string
+                    minLength: 1
+                  data:
+                    type: array
+                    uniqueItems: true
+                    minItems: 1
+                    items:
+                      required:
+                        - id
+                        - name
+                        - codeDepartement
+                        - created
+                        - updatedAt
+                      properties:
+                        id:
+                          type: number
+                        name:
+                          type: string
+                          minLength: 1
+                        codeDepartement:
+                          type: number
+                        created:
+                          type: string
+                          minLength: 1
+                        updatedAt:
+                          type: string
+                          minLength: 1
+                required:
+                  - message
+                  - data
+              examples:
+                Example:
+                  value:
+                    message: La liste des clients a bien été récupérée.
+                    data:
+                      - id: 1
+                        name: F31
+                        codeDepartement: 31100
+                        created: '2021-01-20T19:37:03.000Z'
+                        updatedAt: '2021-01-20T19:37:03.000Z'
+                      - id: 2
+                        name: SPIE
+                        codeDepartement: 31100
+                        created: '2021-01-20T19:37:03.000Z'
+                        updatedAt: '2021-01-20T19:37:03.000Z'
+                      - id: 3
+                        name: ETE
+                        codeDepartement: 31100
+                        created: '2021-01-20T19:37:03.000Z'
+                        updatedAt: '2021-01-20T19:37:03.000Z'
+                      - id: 4
+                        name: SOTRANASA
+                        codeDepartement: 31100
+                        created: '2021-01-20T19:37:03.000Z'
+                        updatedAt: '2021-01-20T19:37:03.000Z'
+                      - id: 5
+                        name: PIXL
+                        codeDepartement: 31100
+                        created: '2021-01-20T19:37:03.000Z'
+                        updatedAt: '2021-01-20T19:37:03.000Z'
+        '500':
+          description: Internal Server Error
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  message:
+                    type: string
+                    minLength: 1
+                required:
+                  - message
+      operationId: get-apiV0-findAllClients
+      description: findAllClients
+      parameters: []
+  '/apiV0/findProjetsByClient/{id}':
+    get:
+      summary: Find all projets by client
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  message:
+                    type: string
+                    minLength: 1
+                  data:
+                    type: array
+                    uniqueItems: true
+                    minItems: 1
+                    items:
+                      required:
+                        - id
+                        - id_element
+                        - id_responsable
+                        - id_client
+                      properties:
+                        id:
+                          type: number
+                        id_element:
+                          type: number
+                        id_responsable:
+                          type: number
+                        id_client:
+                          type: number
+                required:
+                  - message
+                  - data
+              examples:
+                Example:
+                  value:
+                    message: La liste des projets a bien été récupérée.
+                    data:
+                      - id: 1
+                        id_element: 1
+                        id_responsable: 1
+                        id_client: 1
+                      - id: 2
+                        id_element: 134
+                        id_responsable: 3
+                        id_client: 1
+                      - id: 3
+                        id_element: 267
+                        id_responsable: 3
+                        id_client: 1
+                      - id: 4
+                        id_element: 400
+                        id_responsable: 3
+                        id_client: 1
+                      - id: 6
+                        id_element: 666
+                        id_responsable: 3
+                        id_client: 1
+                      - id: 7
+                        id_element: 799
+                        id_responsable: 3
+                        id_client: 1
+                      - id: 8
+                        id_element: 932
+                        id_responsable: 7
+                        id_client: 1
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  message:
+                    type: string
+                    minLength: 1
+                required:
+                  - message
+          headers: {}
+      operationId: 'get-apiV0-findProjetsByClient-:id'
+      description: findAllprojetsByClient
+      deprecated: true
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  '/apiV0/findZoneByProjet/{id}':
+    get:
+      summary: Find Zone by projet
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  message:
+                    type: string
+                    minLength: 1
+                  data:
+                    type: array
+                    uniqueItems: true
+                    minItems: 1
+                    items:
+                      required:
+                        - id
+                        - createdAt
+                        - updatedAt
+                        - id_element
+                        - id_projet
+                      properties:
+                        id:
+                          type: number
+                        createdAt:
+                          type: string
+                          minLength: 1
+                        updatedAt:
+                          type: string
+                          minLength: 1
+                        id_element:
+                          type: number
+                        id_projet:
+                          type: number
+                required:
+                  - message
+                  - data
+              examples:
+                Example:
+                  value:
+                    message: La liste des zones à bien était récupérer
+                    data:
+                      - id: 1
+                        createdAt: '2021-01-22T10:49:53.000Z'
+                        updatedAt: '2021-01-22T10:49:53.000Z'
+                        id_element: 2
+                        id_projet: 1
+                      - id: 2
+                        createdAt: '2021-01-22T10:49:53.000Z'
+                        updatedAt: '2021-01-22T10:49:53.000Z'
+                        id_element: 3
+                        id_projet: 1
+                      - id: 3
+                        createdAt: '2021-01-22T10:49:53.000Z'
+                        updatedAt: '2021-01-22T10:49:53.000Z'
+                        id_element: 5
+                        id_projet: 1
+                      - id: 4
+                        createdAt: '2021-01-22T10:49:53.000Z'
+                        updatedAt: '2021-01-22T10:49:53.000Z'
+                        id_element: 4
+                        id_projet: 1
+                      - id: 5
+                        createdAt: '2021-01-22T10:49:53.000Z'
+                        updatedAt: '2021-01-22T10:49:53.000Z'
+                        id_element: 6
+                        id_projet: 1
+                      - id: 6
+                        createdAt: '2021-01-22T10:49:54.000Z'
+                        updatedAt: '2021-01-22T10:49:54.000Z'
+                        id_element: 7
+                        id_projet: 1
+                      - id: 7
+                        createdAt: '2021-01-22T10:49:54.000Z'
+                        updatedAt: '2021-01-22T10:49:54.000Z'
+                        id_element: 8
+                        id_projet: 1
+                      - id: 8
+                        createdAt: '2021-01-22T10:49:54.000Z'
+                        updatedAt: '2021-01-22T10:49:54.000Z'
+                        id_element: 9
+                        id_projet: 1
+                      - id: 9
+                        createdAt: '2021-01-22T10:49:54.000Z'
+                        updatedAt: '2021-01-22T10:49:54.000Z'
+                        id_element: 10
+                        id_projet: 1
+                      - id: 10
+                        createdAt: '2021-01-22T10:49:54.000Z'
+                        updatedAt: '2021-01-22T10:49:54.000Z'
+                        id_element: 11
+                        id_projet: 1
+                      - id: 11
+                        createdAt: '2021-01-22T10:49:54.000Z'
+                        updatedAt: '2021-01-22T10:49:54.000Z'
+                        id_element: 12
+                        id_projet: 1
+                      - id: 12
+                        createdAt: '2021-01-22T10:49:54.000Z'
+                        updatedAt: '2021-01-22T10:49:54.000Z'
+                        id_element: 13
+                        id_projet: 1
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  message:
+                    type: string
+                    minLength: 1
+                required:
+                  - message
+              examples:
+                Example:
+                  value:
+                    message: string
+      operationId: get-apiV0-findZoneByProjet
+      description: findAllZoneByProjet
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+components:
+  schemas:
+    Client:
+      title: Client
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        codeDepartement:
+          type: number
+      required:
+        - name
+        - codeDepartement
+    Element:
+      title: Element
+      type: object
+      description: ''
+      properties:
+        id:
+          type: number
+        nom:
+          type: string
+        date_debut_p:
+          description: date début prévisionnelle
+          type: number
+        date_fin_p:
+          type: number
+          description: date fin prévisionnelle
+        date_fin:
+          type: number
+      required:
+        - nom
+    File:
+      title: File
+      type: object
+      properties:
+        id:
+          type: number
+        type:
+          type: string
+        link:
+          type: string
+        link_source:
+          type: string
+          description: dossier source /uploads
+    Log:
+      title: Log
+      type: object
+      properties:
+        id:
+          type: number
+        message:
+          type: string
+        date:
+          type: number
+      required:
+        - message
+        - date
+    Module:
+      title: Module
+      type: object
+      properties:
+        id:
+          type: number
+    Projet:
+      title: Projet
+      type: object
+      properties:
+        id:
+          type: number
+    ProjetArchive:
+      title: ProjetArchive
+      type: object
+      properties:
+        id:
+          type: number
+        commentaire:
+          type: string
+    State_type:
+      title: State_type
+      type: object
+      properties:
+        id:
+          type: number
+        type:
+          type: string
+    Step:
+      title: Step
+      type: object
+      properties:
+        id:
+          type: number
+    Tache:
+      title: Tache
+      type: object
+      properties:
+        id:
+          type: number
+    Template:
+      title: Template
+      type: object
+      properties:
+        id:
+          type: number
+        nom:
+          type: string
+    Type_element:
+      title: Type_element
+      type: object
+      properties:
+        id:
+          type: number
+        nom:
+          type: string
+        element:
+          type: string
+    User_Type:
+      title: User_Type
+      type: object
+      properties:
+        id:
+          type: string
+    User:
+      title: User
+      type: object
+      properties:
+        id:
+          type: number
+        name:
+          type: string
+        password:
+          type: string
+        email:
+          type: string
+        etat:
+          type: boolean
+    Version:
+      title: Version
+      type: object
+      properties:
+        id:
+          type: number
+        changement:
+          type: string
+        version:
+          type: string
+        etat:
+          type: boolean
+    Zone:
+      title: Zone
+      type: object
+      properties:
+        id:
+          type: number
+  securitySchemes:
+    API Key - 1:
+      type: http
+      scheme: basic
