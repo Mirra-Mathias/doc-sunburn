@@ -313,7 +313,7 @@ paths:
         name: id
         in: path
         required: true
-  '/apiV0/findZoneByProjet/{id}':
+  '/apiV0/findZonesByProjet/{id}':
     get:
       summary: Find Zone by projet
       tags: []
@@ -439,7 +439,86 @@ paths:
                   value:
                     message: string
       operationId: get-apiV0-findZoneByProjet
-      description: findAllZoneByProjet
+      description: findAllZonesByProjet
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  '/apiV0/findModulesByZone/{id}':
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  message:
+                    type: string
+                    minLength: 1
+                  data:
+                    type: array
+                    uniqueItems: true
+                    minItems: 1
+                    items:
+                      required:
+                        - id
+                        - id_element
+                        - id_zone
+                      properties:
+                        id:
+                          type: number
+                        id_element:
+                          type: number
+                        id_zone:
+                          type: number
+                required:
+                  - message
+                  - data
+              examples:
+                Example:
+                  value:
+                    message: La liste des modules à bien était récupérer
+                    data:
+                      - id: 1
+                        id_element: 14
+                        id_zone: 2
+                      - id: 2
+                        id_element: 15
+                        id_zone: 2
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  message:
+                    type: string
+                  '':
+                    type: string
+      operationId: get-apiV0-findModuleByZone
+      description: findModulesByZone
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  '/apiV0/findTachesByModule/{id}':
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-apiV0-findTachesByModule
+      description: findTaches
     parameters:
       - schema:
           type: string
