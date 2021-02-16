@@ -149,12 +149,7 @@ paths:
                     uniqueItems: true
                     minItems: 1
                     items:
-                      required:
-                        - id
-                        - name
-                        - codeDepartement
-                        - created
-                        - updatedAt
+                      type: object
                       properties:
                         id:
                           type: number
@@ -169,6 +164,12 @@ paths:
                         updatedAt:
                           type: string
                           minLength: 1
+                      required:
+                        - id
+                        - name
+                        - codeDepartement
+                        - created
+                        - updatedAt
                 required:
                   - message
                   - data
@@ -467,10 +468,7 @@ paths:
                     uniqueItems: true
                     minItems: 1
                     items:
-                      required:
-                        - id
-                        - id_element
-                        - id_zone
+                      type: object
                       properties:
                         id:
                           type: number
@@ -478,6 +476,10 @@ paths:
                           type: number
                         id_zone:
                           type: number
+                      required:
+                        - id
+                        - id_element
+                        - id_zone
                 required:
                   - message
                   - data
@@ -519,6 +521,83 @@ paths:
       responses: {}
       operationId: get-apiV0-findTachesByModule
       description: findTaches
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  '/apiV0/findStepsByTache/{id}':
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  message:
+                    type: string
+                    minLength: 1
+                  data:
+                    type: array
+                    uniqueItems: true
+                    minItems: 1
+                    items:
+                      required:
+                        - id
+                        - id_element
+                        - id_tache
+                      properties:
+                        id:
+                          type: number
+                        id_element:
+                          type: number
+                        id_tache:
+                          type: number
+                required:
+                  - message
+                  - data
+              examples:
+                Example:
+                  value:
+                    message: La liste des modules a bien été récupérée.
+                    data:
+                      - id: 1
+                        id_element: 98
+                        id_tache: 38
+                      - id: 2
+                        id_element: 99
+                        id_tache: 38
+                      - id: 3
+                        id_element: 100
+                        id_tache: 38
+        '500':
+          description: Internal Server Error
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  message:
+                    type: string
+                    minLength: 1
+                required:
+                  - message
+      operationId: get-apiV0-findStepsByTaches
+      description: findStepsByTache
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: ''
+              type: object
     parameters:
       - schema:
           type: string
