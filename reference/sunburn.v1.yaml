@@ -688,7 +688,7 @@ paths:
       description: affectationElements
   '/apiV0/findUserAffecteByElements/{id}':
     get:
-      summary: Your GET endpoint
+      summary: Find user affecte by elements
       tags: []
       responses: {}
       operationId: get-apiV0-findUserAffecteByElements
@@ -702,7 +702,7 @@ paths:
         required: true
   /apiV0/createClient:
     post:
-      summary: ''
+      summary: Create projet
       operationId: post-apiV0-createClient
       responses:
         '200':
@@ -716,7 +716,7 @@ paths:
         in: path
         required: true
     delete:
-      summary: ''
+      summary: delete Client
       operationId: delete-apiV0-deleteClient-id
       responses:
         '200':
@@ -724,7 +724,7 @@ paths:
       deprecated: true
   '/apiV0/findClientsByPk/{id}':
     get:
-      summary: Your GET endpoint
+      summary: find Clients by pk
       tags: []
       responses: {}
       operationId: get-apiV0-findClientsByPk
@@ -737,7 +737,7 @@ paths:
         required: true
   '/apiV0/download/{id}':
     get:
-      summary: Your GET endpoint
+      summary: download
       tags: []
       responses:
         '200':
@@ -769,14 +769,14 @@ paths:
         required: true
   /apV0/createTache:
     get:
-      summary: Your GET endpoint
+      summary: Create tache
       tags: []
       responses: {}
       operationId: get-apV0-createTache
       deprecated: true
   '/apiV0/findAllElementsByUser/{id}':
     get:
-      summary: Your GET endpoint
+      summary: Find all elements by user
       tags: []
       responses: {}
       operationId: get-apiV0-findAllElementsByUser
@@ -789,14 +789,14 @@ paths:
         required: true
   /apiV0/findElementsByPk:
     get:
-      summary: Your GET endpoint
+      summary: Find elements by pk
       tags: []
       responses: {}
       operationId: get-apiV0-findElementsByPk
       deprecated: true
   /apiv0/updateElementByStateId/:
     put:
-      summary: ''
+      summary: Update element by state id
       operationId: put-apiv0-updateElementByStateId
       responses:
         '200':
@@ -822,7 +822,7 @@ paths:
       description: ''
   '/apiV0/findFilesByElement/{id}':
     get:
-      summary: Your GET endpoint
+      summary: Find Files by element
       tags: []
       responses:
         '200':
@@ -1033,7 +1033,7 @@ paths:
         required: true
   '/apiV0/findFileMaxVersionByElement/{id}':
     get:
-      summary: Your GET endpoint
+      summary: Find file max version by element
       tags: []
       responses:
         '200':
@@ -1163,14 +1163,14 @@ paths:
         required: true
   /apiV0/sendMail/:
     get:
-      summary: Your GET endpoint
+      summary: Send mail
       tags: []
       responses: {}
       operationId: get-apiV0-sendMail
       deprecated: true
   '/apiV0/deleteModule/{id}':
     get:
-      summary: Your GET endpoint
+      summary: Delete module
       tags: []
       responses: {}
       operationId: get-apiV0-deleteModule
@@ -1183,7 +1183,7 @@ paths:
         required: true
   '/apiV0/findAllModuleByPk/{id}':
     get:
-      summary: Your GET endpoint
+      summary: find all module by pk
       tags: []
       responses:
         '200':
@@ -1204,14 +1204,14 @@ paths:
         required: true
   /apiV0/findAllArchives:
     get:
-      summary: Your GET endpoint
+      summary: find all archives
       tags: []
       responses: {}
       operationId: get-apiV0-findAllArchives
       deprecated: true
   '/apiV0/findArchivesByPk/{id}':
     get:
-      summary: Your GET endpoint
+      summary: find archive by pk
       tags: []
       responses: {}
       operationId: get-apiV0-findArchivesByPk
@@ -1223,7 +1223,7 @@ paths:
         required: true
   '/apiV0/deleteProjet/{id}':
     get:
-      summary: Your GET endpoint
+      summary: delete projet
       tags: []
       responses: {}
       operationId: get-apiV0-deleteProjet
@@ -1236,7 +1236,7 @@ paths:
         required: true
   '/apiV0/findAllProjetByPk/{id}':
     get:
-      summary: Your GET endpoint
+      summary: find all projet by pk
       tags: []
       responses: {}
       operationId: get-apiV0-findAllProjetByPk
@@ -1249,14 +1249,14 @@ paths:
         required: true
   /apiV0/findAllProjets:
     get:
-      summary: Your GET endpoint
+      summary: Find all projets
       tags: []
       responses: {}
       operationId: get-apiV0-findAllProjets
       deprecated: true
   '/apiV0/findProjetsByResponsable/{id}':
     get:
-      summary: Your GET endpoint
+      summary: Find projets by responsable
       tags: []
       responses:
         '200':
@@ -1446,7 +1446,7 @@ paths:
         required: true
   /apiV0/findProjetsByClient/:
     get:
-      summary: Your GET endpoint
+      summary: find projets by client
       tags: []
       responses:
         '200':
@@ -1528,7 +1528,7 @@ paths:
       description: ''
   /apiV0/findProjetsByPk:
     get:
-      summary: Your GET endpoint
+      summary: find projet by pk
       tags: []
       responses: {}
       operationId: get-apiV0-findProjetsByPk
@@ -1536,7 +1536,7 @@ paths:
       description: ''
   '/apiV0/findResponsableByProjet/{id}':
     get:
-      summary: Your GET endpoint
+      summary: Find responsable by projet
       tags: []
       responses:
         '200':
@@ -1609,7 +1609,7 @@ paths:
         required: true
   /apiV0/register:
     put:
-      summary: ''
+      summary: Register
       operationId: put-apiV0-register
       responses:
         '200':
@@ -1723,14 +1723,14 @@ paths:
                 - password
   /apiV0/lectureshp:
     get:
-      summary: Your GET endpoint
+      summary: lecture shp
       tags: []
       responses: {}
       operationId: get-apiV0-lectureshp
       deprecated: true
   /apiV0/findAllStates:
     get:
-      summary: Your GET endpoint
+      summary: Find all states
       tags: []
       responses:
         '200':
@@ -1789,7 +1789,7 @@ paths:
       operationId: get-apiV0-findAllStates
   '/apiV0/findStateTypeByElement/{id}':
     get:
-      summary: Your GET endpoint
+      summary: find state type by element
       tags: []
       responses:
         '200':
@@ -1900,7 +1900,7 @@ paths:
         required: true
   /apiV0/deleteStep/:
     get:
-      summary: Your GET endpoint
+      summary: Delete step
       tags: []
       responses:
         '200':
@@ -1936,7 +1936,7 @@ paths:
       deprecated: true
   '/apiV0/findAllStepsByPk/{id}':
     get:
-      summary: Your GET endpoint
+      summary: Find all steps by pk
       tags: []
       responses:
         '200':
@@ -2016,28 +2016,28 @@ paths:
         required: true
   /apiV0/findStepsByTaches:
     get:
-      summary: Your GET endpoint
+      summary: Find steps by tache
       tags: []
       responses: {}
       operationId: get-apiV0-findStepsByTaches
     parameters: []
   /apiV0/createTache:
     get:
-      summary: Your GET endpoint
+      summary: createTache
       tags: []
       responses: {}
       operationId: get-apiV0-createTache
       deprecated: true
   /apiV0/deleteTache/:
     get:
-      summary: Your GET endpoint
+      summary: Delete tache
       tags: []
       responses: {}
       operationId: get-apiV0-deleteTache
       deprecated: true
   /apiV0/findAllTacheByPk/:
     get:
-      summary: Your GET endpoint
+      summary: find all taches by pk
       tags: []
       responses:
         '200':
@@ -2147,14 +2147,14 @@ paths:
       operationId: get-apiV0-findAllTacheByPk
   /apiV0/findAllTemplates:
     get:
-      summary: Your GET endpoint
+      summary: find all temlates
       tags: []
       responses: {}
       operationId: get-apiV0-findAllTemplates
       deprecated: true
   /apiV0/createProjet:
     get:
-      summary: Your GET endpoint
+      summary: Create projet
       tags: []
       responses:
         '200':
@@ -2260,6 +2260,283 @@ paths:
               required:
                 - message
                 - data
+  /upload:
+    get:
+      summary: Upload
+      tags: []
+      responses: {}
+      operationId: get-upload
+  /apiV0/uploadElements/:
+    get:
+      summary: Upload elements
+      tags: []
+      responses: {}
+      operationId: get-apiv0-uploadElements
+    parameters: []
+  /apiV0/uploadProjet:
+    get:
+      summary: upload projet
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  message:
+                    type: string
+                    minLength: 1
+                  data:
+                    type: object
+                    properties:
+                      nom:
+                        type: string
+                        minLength: 1
+                      link:
+                        type: string
+                        minLength: 1
+                      projet:
+                        type: object
+                        properties:
+                          nom:
+                            type: string
+                            minLength: 1
+                          zones:
+                            type: array
+                            items:
+                              required: []
+                              properties: {}
+                        required:
+                          - nom
+                          - zones
+                    required:
+                      - nom
+                      - link
+                      - projet
+                required:
+                  - message
+                  - data
+              examples:
+                Exemple:
+                  value:
+                    message: fichier envoyer avec succés
+                    data:
+                      nom: NRO-31-354.zip
+                      link: ./uploads/2021-02/NRO-31-354.zip
+                      projet:
+                        nom: NRO-31-354
+                        zones:
+                          - SRO-31-165-356
+                          - SRO-31-165-357
+                          - SRO-31-165-358
+                          - SRO-31-165-359
+                          - SRO-31-165-360
+                          - SRO-31-165-361
+                          - SRO-31-165-362
+                          - SRO-31-165-363
+                          - SRO-31-165-364
+                          - SRO-31-165-365
+                          - SRO-31-165-395
+                          - SRO-31-165-440
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  message:
+                    type: string
+                    minLength: 1
+                required:
+                  - message
+      operationId: get-apiV0-uploadProjet
+      parameters: []
+      requestBody:
+        content:
+          application/zip:
+            schema:
+              type: object
+              properties: {}
+  /apiV0/createUser:
+    get:
+      summary: Create projet
+      tags: []
+      responses: {}
+      operationId: get-apiV0-createUser
+      deprecated: true
+  '/apiV0/deleteUser/{id}':
+    get:
+      summary: Delete user
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties: {}
+      operationId: get-apiV0-deleteUser
+      deprecated: true
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  /apiV0/findAllUsers:
+    get:
+      summary: Find all users
+      tags: []
+      responses: {}
+      operationId: get-apiV0-findAllUsers
+      deprecated: true
+  '/apiV0/findTypeUserByPk/{id}':
+    get:
+      summary: Find type user by pk
+      tags: []
+      responses:
+        '200':
+          description: OK
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  message:
+                    type: string
+                    minLength: 1
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: number
+                      type:
+                        type: string
+                        minLength: 1
+                      created:
+                        type: string
+                        minLength: 1
+                      updatedAt:
+                        type: string
+                        minLength: 1
+                    required:
+                      - id
+                      - type
+                      - created
+                      - updatedAt
+                required:
+                  - message
+                  - data
+              examples:
+                Exemple:
+                  value:
+                    message: string
+                    data:
+                      id: 0
+                      type: string
+                      created: string
+                      updatedAt: string
+      operationId: get-apiV0-findTypeUserByPk
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  '/apiV0/findUserAssignementByElement/{id}':
+    get:
+      summary: Find user assignement by element
+      tags: []
+      responses: {}
+      operationId: get-apiV0-findUserAssignementByElement
+      deprecated: true
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  '/apiV0/findUsersByPk/{id}':
+    get:
+      summary: Find users by pk
+      tags: []
+      responses: {}
+      operationId: get-apiV0-findUsersByPk
+      deprecated: true
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  '/api/updateUser/{id}':
+    get:
+      summary: update user
+      tags: []
+      responses: {}
+      operationId: get-api-updateUser
+      deprecated: true
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  /apiv0/updateEtatVersion:
+    put:
+      summary: update etat version
+      operationId: put-apiv0-updateEtatVersion
+      responses:
+        '200':
+          description: OK
+      deprecated: true
+      description: ''
+  /apiv0/updateEtatVersionByElements/:
+    put:
+      summary: update etat version by element
+      operationId: put-apiv0-updateEtatVersionByElements
+      responses:
+        '200':
+          description: OK
+      deprecated: true
+  '/apiV0/findAllZoneByPk/{id}':
+    get:
+      summary: find all zone by pk
+      tags: []
+      responses: {}
+      operationId: get-apiV0-findAllZoneByPk
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
+  /apiV0/findAllZones:
+    get:
+      summary: Find all zones
+      tags: []
+      responses: {}
+      operationId: get-apiV0-findAllZones
+  '/apiV0/findZoneByProjet/{id}':
+    get:
+      summary: Find zone by projet
+      tags: []
+      responses: {}
+      operationId: get-apiV0-findZoneByProjet
+    parameters:
+      - schema:
+          type: string
+        name: id
+        in: path
+        required: true
 components:
   schemas:
     Client:
