@@ -2265,6 +2265,24 @@ paths:
       tags: []
       responses: {}
       operationId: get-apiv0-uploadElements
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: ''
+              type: object
+              properties:
+                id_user:
+                  type: number
+                id_element:
+                  type: number
+                element_type:
+                  type: string
+                  minLength: 1
+              required:
+                - id_user
+                - id_element
+                - element_type
     parameters: []
   /apiV0/uploadProjet:
     get:
@@ -2518,6 +2536,61 @@ paths:
       tags: []
       responses: {}
       operationId: get-apiV0-findAllZones
+  /apiV0/validation:
+    put:
+      summary: ''
+      operationId: put-apiV0-validation
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  message:
+                    type: string
+                    minLength: 1
+                required:
+                  - message
+              examples:
+                example:
+                  value:
+                    message: Compte validé!
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  message:
+                    type: string
+                    minLength: 1
+                required:
+                  - message
+              examples:
+                example:
+                  value:
+                    message: 'Le compte n''a pas pu être validé, veuillez réessayer.'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: ''
+              type: object
+              properties:
+                code_verif:
+                  type: string
+                  minLength: 1
+              required:
+                - code_verif
+            examples:
+              example:
+                value:
+                  code_verif: 4645c6afc0d8c65dad28bf8abeb39462d999dbf5
 components:
   schemas:
     Client:
