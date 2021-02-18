@@ -2263,7 +2263,9 @@ paths:
     get:
       summary: Upload elements
       tags: []
-      responses: {}
+      responses:
+        '200':
+          description: OK
       operationId: get-apiv0-uploadElements
       requestBody:
         content:
@@ -2283,6 +2285,12 @@ paths:
                 - id_user
                 - id_element
                 - element_type
+            examples:
+              example:
+                value:
+                  id_user: 1
+                  id_element: 1
+                  element_type: zone
     parameters: []
   /apiV0/uploadProjet:
     get:
