@@ -605,9 +605,9 @@ paths:
         in: path
         required: true
   /apiV0/affectationElements/:
-    get:
+    put:
       summary: Affectation elements
-      tags: []
+      operationId: put-apiV0-affectationElements
       responses:
         '200':
           description: OK
@@ -623,12 +623,11 @@ paths:
                 required:
                   - message
               examples:
-                Exemple:
+                example:
                   value:
                     message: L'affectation sur le projet est terminée.
         '500':
           description: Internal Server Error
-          headers: {}
           content:
             application/json:
               schema:
@@ -640,7 +639,6 @@ paths:
                     minLength: 1
                 required:
                   - message
-      operationId: get-apiV0-affectationElements
       requestBody:
         content:
           application/json:
@@ -660,32 +658,12 @@ paths:
                 - type_element
                 - id_affectation
             examples:
-              Exemple projet:
+              example projet:
                 value:
                   id: 1
                   type_element: projet
                   id_affectation: 1
-              Exemple zone:
-                value:
-                  id: 0
-                  type_element: string
-                  id_affectation: 0
-              Exemple module:
-                value:
-                  id: 0
-                  type_element: string
-                  id_affectation: 0
-              Exemple tache:
-                value:
-                  id: 0
-                  type_element: string
-                  id_affectation: 0
-              Exemple step:
-                value:
-                  id: 0
-                  type_element: string
-                  id_affectation: 0
-      description: affectationElements
+      description: ''
   '/apiV0/findUserAffecteByElements/{id}':
     get:
       summary: Find user affecte by elements
