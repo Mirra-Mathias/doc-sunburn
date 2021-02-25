@@ -2577,6 +2577,55 @@ paths:
               example:
                 value:
                   code_verif: 4645c6afc0d8c65dad28bf8abeb39462d999dbf5
+  /apiV0/checkEtatVersion:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-apiV0-checkEtatVersion
+    put:
+      summary: ''
+      operationId: put-apiV0-checkEtatVersion
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  message:
+                    type: string
+                    minLength: 1
+                required:
+                  - message
+      description: Permet de vérifier si une demande de mis à jour est accepté ou refusé.
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: ''
+              type: object
+              properties:
+                version:
+                  type: number
+                  description: ''
+                id_element:
+                  type: number
+                messageErreur:
+                  type: string
+                  minLength: 1
+              required:
+                - version
+                - id_element
+            examples:
+              example de données:
+                value:
+                  version: 1
+                  id_element: 13
+                  messageErreur: BONJOURINSOMNIA
+        description: ''
 components:
   schemas:
     Client:
