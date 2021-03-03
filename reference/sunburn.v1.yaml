@@ -2626,6 +2626,106 @@ paths:
                   id_element: 13
                   messageErreur: BONJOURINSOMNIA
         description: ''
+  /apiV0/readTemplates:
+    get:
+      summary: Read Templates
+      tags: []
+      responses: {}
+      operationId: get-apiV0-readTemplate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: ''
+              type: object
+              properties:
+                id_template:
+                  type: number
+              required:
+                - id_template
+            examples:
+              example:
+                value:
+                  id_template: 1
+    parameters: []
+  /apiV0/templates:
+    post:
+      summary: Create Template
+      operationId: post-apiV0-templates
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: ''
+              type: object
+              properties:
+                nom_template:
+                  type: string
+                  minLength: 1
+                elem:
+                  type: array
+                  uniqueItems: true
+                  minItems: 1
+                  items:
+                    required:
+                      - id
+                      - nom
+                      - id_parent
+                      - type
+                    properties:
+                      id:
+                        type: number
+                      nom:
+                        type: string
+                        minLength: 1
+                      id_parent:
+                        type: string
+                      type:
+                        type: string
+                        minLength: 1
+              required:
+                - nom_template
+                - elem
+            examples:
+              example:
+                value:
+                  nom_template: test
+                  elem:
+                    - id: 1
+                      nom: Yacine
+                      id_parent: ''
+                      type: projet
+                    - id: 2
+                      nom: Adrien
+                      id_parent: 1
+                      type: zone
+                    - id: 3
+                      nom: Corentin
+                      id_parent: 1
+                      type: zone
+                    - id: 4
+                      nom: Mathias
+                      id_parent: 1
+                      type: zone
+                    - id: 5
+                      nom: module_adrien
+                      id_parent: 2
+                      type: module
+                    - id: 6
+                      nom: tache_adrien
+                      id_parent: 5
+                      type: tache
+                    - id: 7
+                      nom: step1_adrien
+                      id_parent: 6
+                      type: step
+                    - id: 8
+                      nom: step2_adrien
+                      id_parent: 6
+                      type: step
 components:
   schemas:
     Client:
