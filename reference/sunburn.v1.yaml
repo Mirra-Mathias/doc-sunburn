@@ -653,16 +653,20 @@ paths:
                   minLength: 1
                 id_affectation:
                   type: number
+                temps:
+                  type: number
               required:
                 - id
                 - type_element
                 - id_affectation
+                - temps
             examples:
               example projet:
                 value:
                   id: 1
                   type_element: projet
                   id_affectation: 1
+                  temps: 2
       description: ''
   '/apiV0/findUserAffecteByElements/{id}':
     get:
