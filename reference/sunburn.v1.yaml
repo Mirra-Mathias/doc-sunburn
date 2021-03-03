@@ -667,7 +667,7 @@ paths:
                   type_element: projet
                   id_affectation: 1
                   temps: 2
-      description: ''
+      description: IL FAUT AJOUTER LE CHAMPS "temps" DANS LA BD
   '/apiV0/findUserAffecteByElements/{id}':
     get:
       summary: Find user affecte by elements
