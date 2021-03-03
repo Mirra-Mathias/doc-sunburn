@@ -2726,6 +2726,122 @@ paths:
                       nom: step2_adrien
                       id_parent: 6
                       type: step
+  /apiV0/createElementDepends:
+    post:
+      summary: Create Element Depend
+      operationId: post-apiV0-createElementDepends
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: ''
+              type: object
+              properties:
+                id_type_depend:
+                  type: number
+                depends:
+                  type: array
+                  uniqueItems: true
+                  minItems: 1
+                  items:
+                    required:
+                      - id_parent
+                      - id_enfant
+                    properties:
+                      id_parent:
+                        type: number
+                      id_enfant:
+                        type: number
+              required:
+                - id_type_depend
+                - depends
+            examples:
+              example:
+                value:
+                  id_type_depend: 1
+                  depends:
+                    - id_parent: 15
+                      id_enfant: 16
+                    - id_parent: 16
+                      id_enfant: 19
+  /apiV0/readParentElementDependByEnfants:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-apiV0-readParentElementDependByEnfants
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: ''
+              type: object
+              properties:
+                id_enfant:
+                  type: number
+              required:
+                - id_enfant
+            examples:
+              example:
+                value:
+                  id_enfant: 16
+  /apiV0/readEnfantElementDependByParents:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-apiV0-readEnfantElementDependByParents
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: ''
+              type: object
+              properties:
+                id_parent:
+                  type: number
+              required:
+                - id_parent
+            examples:
+              example:
+                value:
+                  id_parent: 15
+  /apiV0/readIdTypeElementDependByEnfants:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-apiV0-readIdTypeElementDependByEnfants
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: ''
+              type: object
+              properties:
+                id_enfant:
+                  type: number
+              required:
+                - id_enfant
+            examples:
+              example:
+                value:
+                  id_enfant: 16
+  /apiV0/readAllElementDepends:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses: {}
+      operationId: get-apiV0-readAllElementDepends
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: {}
 components:
   schemas:
     Client:
