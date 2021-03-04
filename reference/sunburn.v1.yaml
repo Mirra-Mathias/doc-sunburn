@@ -2846,6 +2846,37 @@ paths:
             schema:
               type: object
               properties: {}
+  /apiV0/affectationResponsables:
+    put:
+      summary: ''
+      operationId: put-apiV0-affectationResponsables
+      responses:
+        '200':
+          description: OK
+      requestBody:
+        content:
+          application/json:
+            schema:
+              description: ''
+              type: object
+              properties:
+                id_responsable:
+                  type: number
+                id:
+                  type: number
+                type_element:
+                  type: string
+                  minLength: 1
+              required:
+                - id_responsable
+                - id
+                - type_element
+            examples:
+              example:
+                value:
+                  id_responsable: 2
+                  id: 1
+                  type_element: projet
 components:
   schemas:
     Client:
