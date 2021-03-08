@@ -2652,7 +2652,7 @@ paths:
                 value:
                   id_template: 1
     parameters: []
-  /apiV0/templates:
+  /apiV0/createTemplate:
     post:
       summary: Create Template
       operationId: post-apiV0-templates
@@ -2730,6 +2730,7 @@ paths:
                       nom: step2_adrien
                       id_parent: 6
                       type: step
+    parameters: []
   /apiV0/createElementDepends:
     post:
       summary: Create Element Depend
